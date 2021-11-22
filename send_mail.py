@@ -6,11 +6,11 @@ from email.mime.base import MIMEBase
 from email import encoders
    
 class send_mail:
-    def __init__(self,from_mail,from_mail_pass) -> None:
+    def __init__(self,from_mail,from_mail_pass,user_email) -> None:
         self.from_mail = from_mail
         self.from_mail_pass = from_mail_pass
 
-    def send_mail(self,to_mail,msg):
+    def send_mail(self,msg):
         try:
             # creates SMTP session
             s = smtplib.SMTP('smtp.gmail.com', 587)
@@ -25,17 +25,16 @@ class send_mail:
             message = msg
             
             # sending the mail
-            s.sendmail(self.from_mail, to_mail, message)
+            s.sendmail(self.from_mail, self.user_email, message)
             
             # terminating the session
             s.quit()
         except:
             return f"[-] Error sending video clip"
 
-    def send_mail_with_attachment(self,to_mail,subject,body,clip_path=None):
+    def send_mail_with_attachment(self,subject,body,clip_path=None):
         try:
             fromaddr = self.from_mail
-            toaddr = to_mail
             
             # instance of MIMEMultipart
             msg = MIMEMultipart()
@@ -44,7 +43,7 @@ class send_mail:
             msg['From'] = fromaddr
             
             # storing the receivers email address 
-            msg['To'] = toaddr
+            msg['To'] = self.user_email
             
             # storing the subject 
             msg['Subject'] = subject
@@ -86,7 +85,7 @@ class send_mail:
             text = msg.as_string()
             
             # sending the mail
-            s.sendmail(fromaddr, toaddr, text)
+            s.sendmail(fromaddr, self.user_email, text)
             
             # terminating the session
             s.quit()

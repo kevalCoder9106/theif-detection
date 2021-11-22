@@ -51,7 +51,7 @@ def record_chunk():
 
 if __name__ == "__main__":
     # initiate send email object
-    send_mail = send_mail.send_mail("actemp22@gmail.com","atempaccount99",)
+    send_mail = send_mail.send_mail("actemp22@gmail.com","atempaccount99","user_email")
     
     while True:
         # get if any human are detected
