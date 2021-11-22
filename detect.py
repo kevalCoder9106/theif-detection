@@ -204,7 +204,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
 
 def get_human_presense(src):
-    run(source=src)
+    run(source=src,classes=0)
     return human_detected
 
 def parse_opt():
