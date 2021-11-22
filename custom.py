@@ -37,5 +37,6 @@ if __name__ == "__main__":
 
     if len(total_human_detected) > 0:
         give_alert()
+        record_chunk()
     else:
         print("No humans in the scene right now")
