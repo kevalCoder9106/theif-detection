@@ -16,10 +16,11 @@ def record_chunk():
     width= int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height= int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    writer= cv2.VideoWriter('basicvideo.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 20, (width,height))
+    writer= cv2.VideoWriter('recording/rec1.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 20, (width,height))
     while True:
         ret,frame= cap.read()
         writer.write(frame)
+        
         cv2.imshow('frame', frame)
 
         print(frame)
