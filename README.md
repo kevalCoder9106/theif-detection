@@ -1,4 +1,5 @@
-# Human-detection-sending-mail
+# thief-detection
+### This project was made with purpose of security. Whenever any unwelcomed person enters in camera radius it will send email
 
 ## Installation
 ### pip install -r requirements.txt
